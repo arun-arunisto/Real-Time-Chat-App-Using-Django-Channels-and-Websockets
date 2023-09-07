@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Chat Room {% endblock %}
+{% block content %}
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <label class="navbar-brand btn btn-outline-danger">{{ chat_box_name }}</label>
+        <div class="d-flex">
+            <label class="btn btn-outline-success">{{ username }}</label>
+        </div>
+    </div>
+</nav>
+<div class="card">
+    <div class="card-body w-50" style="margin: 0 auto;">
+      <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-auto mb-3">
+                <div class="form-group">
+                    <label for="chat-text" class="h4 pt-6">Messages</label>
+                    <textarea class="form-control" id="chat-text" readonly rows="10" cols="100"></textarea>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Enter your text here.." id="input">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" id="submit">SEND MESSAGE</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% comment %} Get data for username and chatbox name {% endcomment %}
+{{ username | json_script:"username"}}
+{{ chat_box_name | json_script:"room-name" }}
+{% endblock %}
+<!-----
+---->
